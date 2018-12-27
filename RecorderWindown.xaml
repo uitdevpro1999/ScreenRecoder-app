@@ -1,0 +1,341 @@
+﻿<Window x:Class="ScreenRecorder_2.RecorderWindown"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ScreenRecorder_2"
+        xmlns:wpfTool="clr-namespace:Xceed.Wpf.Toolkit;assembly=Xceed.Wpf.Toolkit"    
+        mc:Ignorable="d"
+        Title="CaptureRegion" Height="450" Width="800"
+        WindowState ="Maximized"
+        WindowStyle="None"
+        Background="Transparent"
+        AllowsTransparency="True" 
+        Topmost="True"
+        Name="windown">
+    <Grid Name="fullregion"
+          Width="{Binding ActualWidth, ElementName =windown}"
+          Height="{Binding ActualHeight, ElementName = windown}">
+        <TextBlock Name="size" Grid.Row="0"></TextBlock>
+        <Canvas Name="canvas_camera" Margin="0" VerticalAlignment="Top" HorizontalAlignment="Left" ></Canvas>
+        <Canvas Name="region" Grid.Row="1" Margin="0">
+            <Grid Name="grid" 
+                  Width="{Binding ActualWidth, ElementName = region}" 
+                  Height="{Binding ActualHeight, ElementName = region}">
+                <Rectangle Name="border" 
+                           HorizontalAlignment="Stretch" 
+                           Stroke="Red" 
+                           StrokeThickness="3"></Rectangle>
+                <Rectangle Name="LT"
+                           HorizontalAlignment="Left" 
+                           VerticalAlignment="Top" 
+                           Fill="Gray"
+                           Stroke="White"
+                           Height="20" 
+                           Width="20"
+                           MouseDown="LT_down"
+                           MouseEnter="LT_enter"                         
+                           ></Rectangle>
+                <Rectangle Name="T" 
+                           HorizontalAlignment="Center" 
+                           VerticalAlignment="Top" 
+                           Fill="Gray" 
+                           Stroke="White"
+                           Height="20" 
+                           Width="20"
+                           MouseDown="T_down"
+                           MouseEnter="T_enter"                         
+                           ></Rectangle>
+                <Rectangle Name="RT" 
+                           HorizontalAlignment="Right" 
+                           VerticalAlignment="Top" 
+                           Fill="Gray"
+                           Stroke="White"
+                           Height="20" 
+                           Width="20"
+                           MouseDown="RT_down"
+                           MouseEnter="RT_enter"                         
+                           ></Rectangle>
+                <Rectangle Name="R" 
+                           HorizontalAlignment="Right"
+                           VerticalAlignment="Center" 
+                           Fill="Gray" 
+                           Stroke="White"
+                           Height="20" 
+                           Width="20"
+                           MouseDown="R_down"
+                           MouseEnter="R_enter"                         
+                           ></Rectangle>
+                <Rectangle Name="RB" 
+                           HorizontalAlignment="Right" 
+                           VerticalAlignment="Bottom" 
+                           Fill="Gray" 
+                           Stroke="White"
+                           Height="20"
+                           Width="20"
+                           MouseDown="RB_down"
+                           MouseEnter="RB_enter"                         
+                           ></Rectangle>
+                <Rectangle Name="B" 
+                           HorizontalAlignment="Center" 
+                           VerticalAlignment="Bottom" 
+                           Fill="Gray" 
+                           Stroke="White"
+                           Height="20" 
+                           Width="20"
+                           MouseDown="B_down"
+                           MouseEnter="B_enter"                         
+                           ></Rectangle>
+                <Rectangle Name="LB" 
+                           HorizontalAlignment="Left"
+                           VerticalAlignment="Bottom" 
+                           Fill="Gray"
+                           Stroke="White"
+                           Height="20" 
+                           Width="20"
+                           MouseDown="LB_down"
+                           MouseEnter="LB_enter"                         
+                           ></Rectangle>
+                <Rectangle Name="L"
+                           HorizontalAlignment="Left" 
+                           VerticalAlignment="Center"
+                           Fill="Gray"
+                           Stroke="White"
+                           Height="20" 
+                           Width="20"
+                           MouseDown="L_down"
+                           MouseEnter="L_enter"                         
+                           ></Rectangle>
+                <Rectangle  Name="All"
+                           HorizontalAlignment="Center"
+                           VerticalAlignment="Center"
+                           RadiusX="45"
+                           RadiusY="45"
+                           Fill="Gray"
+                           Stroke="White"
+                           Height="50"
+                           Width="50"
+                           MouseRightButtonDown="All_right_down"
+                           MouseDown="All_down"
+                           MouseEnter="All_enter"
+                           MouseLeave="All_leave"
+                           ></Rectangle>
+            </Grid>
+        </Canvas>
+        <Canvas>
+            <Canvas Name="toolbar" Width="420" Height="100">
+                <Rectangle 
+                    Name="bt_hide_show"
+                    Height="40"
+                    Width="60"
+                    RadiusX="20"
+                    RadiusY="20"
+                    Canvas.Left="30"
+                    Canvas.Top="30"
+                    Stroke="AliceBlue"
+                    StrokeThickness="2"
+                    Fill="White">
+                    <Rectangle.BitmapEffect>
+                        <DropShadowBitmapEffect Color="Black" Direction="320" Softness="1" ShadowDepth="5" Opacity="1"></DropShadowBitmapEffect>
+                    </Rectangle.BitmapEffect>
+                </Rectangle>
+                <Image Name="bt_show_hide"
+                       MouseDown="show_hide_down"
+                       MouseUp="show_hide_up"
+                       MouseMove="show_hide_move"
+                       Source="/Resourses\_hide.png"
+                       Canvas.Left="30"
+                       Canvas.Top="30"/>
+                <Rectangle 
+                    Canvas.Left="50" 
+                    Canvas.Top="15" 
+                    Height="70" 
+                    Width="320" 
+                    Fill="White" 
+                    RadiusX = "35"
+                    RadiusY="35"
+                    Stroke="LightBlue" 
+                    StrokeThickness="2">
+                    <Rectangle.BitmapEffect>
+                        <DropShadowBitmapEffect Color="Black" Direction="320" Softness="1" ShadowDepth="5" Opacity="0.8"></DropShadowBitmapEffect>
+                    </Rectangle.BitmapEffect>
+                </Rectangle>
+                <Image Name="bt_rec"
+                       MouseEnter="rec_enter"
+                       MouseLeave="rec_leave"
+                       MouseDown="rec_down"
+                       Source="/Resourses\_rec.png"
+                       Height="35"
+                       Width="35"
+                       Canvas.Left="67.5"
+                       Canvas.Top="32.5"/>
+                <Image Name="bt_stop"
+                       MouseEnter="stop_enter"
+                       MouseLeave="stop_leave"
+                       MouseDown="stop_down"
+                       Source="/Resourses\_stop.png"
+                       Height="35"
+                       Width="35"
+                       Canvas.Right="67.5"
+                       Canvas.Top="32.5"/>
+
+                <Image Name="bt_timer"
+                       MouseEnter="timer_enter"
+                       MouseLeave="timer_leave"
+                       MouseDown="timer_down"
+                       Source="/Resourses\_timer.png"
+                       Height="20"
+                       Width="20"
+                       Canvas.Left="120"
+                       Canvas.Top="23"/>
+                <Image Name="bt_capture"
+                       MouseEnter="capture_enter"
+                       MouseLeave="capture_leave"
+                       MouseDown="capture_down"
+                       Source="/Resourses\_capture.png"
+                       Height="20"
+                       Width="20"
+                       Canvas.Left="160"
+                       Canvas.Top="23"/>
+                <Image Name="bt_camera"
+                       MouseEnter="camera_enter"
+                       MouseLeave="camera_leave"
+                       MouseDown="camera_down"                     
+                       Source="/Resourses\_no_webcam.png"
+                       Height="20"
+                       Width="20"
+                       Canvas.Left="200"
+                       Canvas.Top="23"/>
+                <Image Name="bt_micro"
+                       MouseEnter="micro_enter"
+                       MouseLeave="micro_leave"
+                       MouseDown="micro_down"
+                       Source="/Resourses\_no_micro.png"
+                       Height="20"
+                       Width="20"
+                       Canvas.Left="240"
+                       Canvas.Top="23"/>
+                <Image Name="bt_audio"
+                       MouseEnter="audio_enter"
+                       MouseLeave="audio_leave"
+                       MouseDown="audio_down"
+                       Source="/Resourses\_no_audio.png"
+                       Height="20"
+                       Width="20"
+                       Canvas.Left="280"
+                       Canvas.Top="23"/>
+
+                <Image Name="bt_shape"
+                       MouseEnter="shape_enter"
+                       MouseLeave="shape_leave"
+                       Source="/Resourses\_shape.png"
+                       Height="20"
+                       Width="20"
+                       Canvas.Left="120"
+                       Canvas.Top="57"/>
+                <Image Name="bt_pencil"
+                       MouseEnter="pencil_enter"
+                       MouseLeave="pencil_leave"
+                       Source="/Resourses\_pencil.png"
+                       Height="20"
+                       Width="20"
+                       Canvas.Left="160"
+                       Canvas.Top="57"/>
+                <Rectangle Name="_color"
+                           Width="20"
+                           Height="5"                   
+                           Fill="Red"
+                           Canvas.Left="200"
+                           Canvas.Top="75"/>
+                <Image Name="bt_color"
+                       MouseEnter="color_enter"
+                       MouseLeave="color_leave"
+                       MouseDown="color_down"
+                       Source="/Resourses\_color.png"
+                       Height="20"
+                       Width="20"
+                       Canvas.Left="200"
+                       Canvas.Top="53"/>
+                <Image Name="bt_text"
+                       MouseEnter="text_enter"
+                       MouseLeave="text_leave"
+                       Source="/Resourses\_text.png"
+                       Height="19"
+                       Width="19"
+                       Canvas.Left="240"
+                       Canvas.Top="57"/>
+                <Image Name="bt_eraser"
+                       MouseEnter="eraser_enter"
+                       MouseLeave="eraser_leave"
+                       MouseDown="eraser_down"
+                       Source="/Resourses\_eraser.png"
+                       Height="20"
+                       Width="20"
+                       Canvas.Left="280"
+                       Canvas.Top="57"/>
+
+                <Canvas Name="canvas">
+                    <DockPanel LastChildFill="True" Canvas.Left="120" Canvas.Top="22">
+                        <Menu DockPanel.Dock="Top" Height="22" Width="60" Margin="0,34,120,0" Opacity=" 0.01">
+                            <MenuItem Header="shape" Width="20" Height="32"
+                                      MouseEnter="shape_enter"
+                                      MouseLeave="shape_leave">
+                                <MenuItem Header="Rectangle"
+                                          Click="shape_rect_click">
+                                    <MenuItem.Icon>
+                                        <Image Source="/Resourses/_rectangle.png"/>
+                                    </MenuItem.Icon>
+                                </MenuItem>
+                                <MenuItem Header="Ellipse"
+                                           Click="shape_ellip_click">
+                                    <MenuItem.Icon>
+                                        <Image Source="/Resourses/_circle.png"/>
+                                    </MenuItem.Icon>
+                                </MenuItem>
+                                <MenuItem Header="Line"
+                                          Click="shape_line_click">
+                                    <MenuItem.Icon>
+                                        <Image Source="/Resourses/_line.png"/>
+                                    </MenuItem.Icon>
+                                </MenuItem>
+                            </MenuItem>
+                            <MenuItem Header="Pencil"  Width="20"  Height="30"  Margin="20,0,0,0"
+                                      MouseEnter="pencil_enter"
+                                      MouseLeave="pencil_leave">
+                                <MenuItem Header="Line 10"
+                                          Click="pencil10_click">
+                                    <MenuItem.Icon>
+                                        <Image Source="/Resourses/_line10.png"/>
+                                    </MenuItem.Icon>
+                                </MenuItem>
+                                <MenuItem Header="Line 5"
+                                          Click="pencil5_click">
+                                    <MenuItem.Icon>
+                                        <Image Source="/Resourses/_line5.png"/>
+                                    </MenuItem.Icon>
+                                </MenuItem>
+                                <MenuItem Header="line 2"
+                                          Click="pencil2_click">
+                                    <MenuItem.Icon>
+                                        <Image Source="/Resourses/_line2.png"/>
+                                    </MenuItem.Icon>
+                                </MenuItem>
+                            </MenuItem>
+                            <wpfTool:ColorPicker Name="pickercolor" Width="20" Height="30" Margin="13,0,0,0" Opacity="0.01" 
+                                                 MouseEnter="color_enter"
+                                                 MouseLeave="color_leave"  
+                                                 />
+                            <!--<MenuItem Header="Text"  Width="20" Height="30" Margin="12,0,0,0"
+                                      MouseEnter="text_enter"
+                                      MouseLeave="text_leave">
+                            </MenuItem>-->
+                        </Menu>
+                    </DockPanel>
+                </Canvas>
+
+                <local:CountdownTimer x:Name="timercontrol" Canvas.Left="110" Canvas.Top="90" Opacity="0"/>
+
+            </Canvas>
+        </Canvas>
+    </Grid>
+</Window>

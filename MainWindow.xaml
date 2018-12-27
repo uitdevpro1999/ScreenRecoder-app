@@ -1,0 +1,59 @@
+﻿<Window x:Class="ScreenRecorder_2.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ScreenRecorder_2"       
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800"
+        ResizeMode="NoResize">
+    
+    <Grid Name="gridMain">
+       
+        <!--<Grid.RowDefinitions>
+            <RowDefinition Height="25"></RowDefinition>
+        </Grid.RowDefinitions>-->
+        <DockPanel Name="dockPanMain" LastChildFill="True"  >
+            <Menu Name="menuBarTop" Height="23" DockPanel.Dock="Top">
+                <MenuItem Header="Capture Video">
+                    <MenuItem Header="Full Screen" 
+                              Click="fullscreen_click">
+                        <MenuItem.Icon>
+                            <Image Source="/Resourses/_fullscreen.png"/>
+                        </MenuItem.Icon>
+                    </MenuItem>
+                    <MenuItem Header="Custom Area"
+                              Click="custtom_click">
+                        <MenuItem.Icon>
+                            <Image Source="/Resourses/_select.png"/>
+                        </MenuItem.Icon>
+                    </MenuItem>
+                </MenuItem>
+                <MenuItem Header="Setting"
+                          Click="btsetting_click"></MenuItem>
+
+            </Menu>
+
+            <ListView x:Name="listwiew" Margin="10" Uid="aaa">
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn Header="File Name" Width="220" DisplayMemberBinding="{Binding Name}" ></GridViewColumn>
+                        <GridViewColumn Header="Path" Width="50" DisplayMemberBinding="{Binding Path}"/>
+                        <GridViewColumn Header="Edit" Width="50" DisplayMemberBinding="{Binding Edit}"/>
+                        <GridViewColumn Header="More" Width="50" DisplayMemberBinding="{Binding More}"/>
+                        <GridViewColumn Header="Size" Width="80" DisplayMemberBinding="{Binding Size}"/>
+                        <GridViewColumn Header="Duration" Width="150" DisplayMemberBinding="{Binding Duration}"/>
+                        <GridViewColumn Header="Delete" Width="120" DisplayMemberBinding="{Binding delete}"/>
+                    </GridView>
+                </ListView.View>
+            </ListView>
+        </DockPanel>
+    </Grid>
+</Window>
+    
+    
+    
+    
+    
+    
+    
