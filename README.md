@@ -66,6 +66,7 @@ NET Framework bao gồm 3 công nghệ khác nhau:
     *	Các giao diện chương trình (Web, Winform, Windows Phone …).
 
 C# :
+
 ![](Image/c%23.png)
 
 * C# là một ngôn ngữ cấp cao và thuần hướng đối tượng, hỗ trợ rất mạnh trong việc xây dựng các ứng dụng trên môi trường Windows. Đối với những lập trình viên đã từng sử dụng qua C, C++, hoặc Java, việc nắm bắt và sử dụng C# một cách hiệu quả là khá dễ dàng và ít tốn thời gian.
@@ -79,9 +80,9 @@ C# :
 
 OVERVIEW OF THE FEATURES OF THIS API :
 
-* This screen recorder API can meet almost all your needs of screen recording. By utilizing it, you can capture any customized region of screen as video along with audio from your computer system sound, microphone or both. Likewise, you can also choose to record in full screen, webcam, or even create picture-in-picture video.
+* API trình ghi màn hình này có thể đáp ứng hầu hết tất cả các nhu cầu ghi màn hình của bạn. Bằng cách sử dụng nó, bạn có thể chụp bất kỳ vùng màn hình tùy chỉnh nào dưới dạng video cùng với âm thanh từ âm thanh hệ thống máy tính, micrô hoặc cả hai. Tương tự như vậy, bạn cũng có thể chọn ghi lại toàn màn hình, webcam hoặc thậm chí tạo video hình ảnh trong ảnh.
 
-* When making the screencast with this API, you will be given several annotating options such as lines, arrows, texts and many more to make your recording more instructive and vivid. Once you're done with the capturing, you'll be able to save what you have recorded in different video formats and GIF.
+* Khi tạo screencast với API này, bạn sẽ được cung cấp một số tùy chọn chú thích như dòng, mũi tên, văn bản và nhiều tùy chọn khác để ghi âm của bạn có tính hướng dẫn và sinh động hơn. Khi bạn đã hoàn tất việc chụp, bạn sẽ có thể lưu những gì bạn đã ghi ở các định dạng video và GIF khác nhau.
 ---
 
 #LIBRARY :
