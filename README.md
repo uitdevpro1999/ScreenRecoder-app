@@ -89,3 +89,16 @@ OVERVIEW OF THE FEATURES OF THIS API :
 
 ![](Image/Library.png)
 
+[Framework modules Using](http://accord-framework.net/docs/html/R_Project_Accord_NET.htm?fbclid=IwAR3EyGLu-C3qs8zXYj9AHZp6bb0aBkq6Ep51E4huocqBuURC2PjcDNTya84#!)
+
+---
+
+#NHÓM TÁC GIẢ :
+
+* Huỳnh Quốc Trung
+* Nguyễn Tài Bồi
+* Nguyễn Ngọc Hiển
+* Lý Đạo Nam
+* Phan Xuân Hào
+
+
